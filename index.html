@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Shopping Cart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+  <nav class = "navbar navbar-default">
+    <div class = "container-fluid">
+      <a class = "navbar-brand">Rodelyn F. Pondare</a>
+    </div>
+          </nav>
+<!-- partial:index.partial.html -->
+<div class="container" ng-app="myApp" ng-controller="myCtrl">
+  <div id="div1">
+  <div class="col-md-6">
+    <h1 style="font-family: serif; background-color: #EAFAF1">PRODUCTS</h1>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th >Product Name</th>
+          <th>Product Image</th>
+          <th>Price</th>
+          <th>Transactions</th>
+        </tr>
+      </thead>
+      <tbody>
+   <tr ng-repeat="item in items">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td><img ng-src = "{{item.image }}"style="width:50px;height:50px;"/></td>
+          <td> ₱ {{ item.price | number:0 }}</td>
+          <td>
+            <button ng-click="addItem(item)">
+              Add to cart
+              <i class="glyphicon glyphicon-shopping-cart"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+<div id="div2">
+         <h3 style="font-family: serif; background-color: #E8F8F5 ">MY CART</h3>
+        <div class = "panel-body table-responsive">
+    <table class="table">
+      <thead>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Product Image</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Remove</th>
+      </thead>
+
+      <tbody id="ok">  
+  <tr ng-repeat="myItem in myItems | reverse">
+          <td>{{ myItem.id }}</td>
+          <td>{{ myItem.name }}</td>
+          <td><a href ><img ng-src = "{{myItem.image }}"style="width:50px;height:50px;"/></td>
+          <td>₱ {{ myItem.price }}</td>
+          <td>{{ myItem.count }}</td>
+          <td><button ng-click="remove(myItems)" class="btn btn-danger"><span class = "glyphicon glyphicon-remove"></button></td>
+        </tr>
+      </tbody>
+
+    </table>
+    <span class="text-center" ng-show="myItems.length == 0">
+      <h3 style="font-family: serif; background-color: #E8F8F5 ">YOUR SHOPPING CART IS EMPTY</h3>
+    </span>
+    <div class="clearfix"></div>
+    <span class="pull-right alert alert-success">Total Price:₱ {{ !totalPrice ? "0" : totalPrice | number:0 }}</span>
+  
+  </div>
+</div>
+
+  </div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js'></script><script  src="./script.js"></script>
+  </div>
+</body>
+</html>

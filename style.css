@@ -1,0 +1,33 @@
+#div1{
+  background: #1c3;
+  height: 600px;
+  width: 1245px;
+  font-size: 15px;
+  border: 2px solid #000000;
+  text-align: left;
+  float: left;
+}
+#div2{
+ background: #5DADE2;
+  height: 599px;
+  width: 500px;
+  text-align: center;
+  float: right;
+}
+
+table thead tr th {
+  color: #17202A ;
+}
+
+span.text-center {
+  display: block;
+  margin-bottom: 10px;
+  color: green;
+}
+
+button {
+  font-size: 15px!important;
+}
+button i {
+  font-size: 15px!important;
+}
